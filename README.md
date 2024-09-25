@@ -10,6 +10,9 @@ This is the frontend for a Job Application Management system built using React a
   - Login and Signup functionality.
     
 ![](https://github.com/user-attachments/assets/047cc38e-f95d-4aad-a4cf-e021b286f3ea)
+![](https://github.com/user-attachments/assets/f298a357-1f38-4dd5-9b54-b550a5276086)
+![](https://github.com/user-attachments/assets/795cf721-fa8a-4ee3-b8cc-b7631a88991c)
+
   
 - **Recruiter Interface:**
   - Manage companies.
@@ -17,14 +20,14 @@ This is the frontend for a Job Application Management system built using React a
   - View applicants for specific jobs.
  
 ![](https://github.com/user-attachments/assets/5bc8d932-61ce-4a1e-abe3-a928848b0dd9)
-
+![](https://github.com/user-attachments/assets/d2d84002-4aaf-4e49-81ea-593be2442a9d)
 
 - **Admin Interface:**
   - Manage jobs and companies via a dedicated admin dashboard.
+![](https://github.com/user-attachments/assets/d58176a8-0a25-4e23-9777-0a210cc3a460)
+
 
 - **Protected Routes:** Routes are protected based on user roles to ensure only authorized users can access certain sections (e.g., recruiters or admins).
-
-![](https://github.com/user-attachments/assets/d58176a8-0a25-4e23-9777-0a210cc3a460)
 
 
 ## Technologies Used 
