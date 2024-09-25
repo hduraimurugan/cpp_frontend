@@ -1,6 +1,6 @@
 
 
-const BASE_URL="http://localhost:8000"
+const BASE_URL="https://cpp-backend.onrender.com"
 
 export const USER_API_END_POINT=`${BASE_URL}/api/v1/user`;
 
