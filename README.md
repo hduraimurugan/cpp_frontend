@@ -167,9 +167,7 @@ You can modify the route protection logic or add more routes in the `App.js` fil
 - You can modify the styling by editing the `App.css` file.
 - To customize the components or add new ones, navigate to the `src/components/` folder and create or modify existing components.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
