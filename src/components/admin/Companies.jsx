@@ -20,7 +20,7 @@ const Companies = () => {
     return (
         <div>
             <Navbar />
-            <div className='max-w-6xl mx-auto my-10'>
+            <div className='w-4/5 md:w-auto max-w-6xl mx-auto my-10'>
                 <div><h1 className='text-center text-2xl font-bold'>Companies List</h1></div>
 
                 <div className='flex items-center justify-between my-5'>

@@ -86,7 +86,7 @@ const Signup = () => {
             <Navbar />
 
             <div className="flex items-center justify-center max-w-7xl mx-auto">
-                <form onSubmit={submitHandler} className="w-1/2 border border-gray-200 rounded-md p-4 my-10">
+                <form onSubmit={submitHandler} className="md:w-1/2 w-3/4 border border-gray-200 rounded-md p-4 my-10">
                     <h1 className="font-bold text-xl text-center mb-5">Sign up</h1>
                     <div className="my-2">
                         <Label>Full Name:</Label>
@@ -169,7 +169,7 @@ const Signup = () => {
                                 <Label htmlFor="r3">Admin</Label>
                             </div> */}
                         </RadioGroup>
-                        <div className='flex items-center gap-2'>
+                        <div className='items-center gap-2 md:flex hidden'>
                             <Label>Profile:</Label>
                             <Input
                                 accept="image/*"
@@ -179,6 +179,15 @@ const Signup = () => {
                             />
                         </div>
                     </div>
+                    <div className='items-center gap-2 flex md:hidden'>
+                            <Label>Profile:</Label>
+                            <Input
+                                accept="image/*"
+                                type="file"
+                                onChange={changeFileHandler}
+                                className="cursor-pointer"
+                            />
+                        </div>
 
                     {
                         loading ? <Button className="w-full my-4 bg-[#1a8e1a] hover:bg-[#1a5d1a]">

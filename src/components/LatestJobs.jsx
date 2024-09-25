@@ -12,9 +12,9 @@ const LatestJobs = () => {
 
 
     return (
-        <div className='max-w-7xl mx-auto my-20'>
-            <h1 className='text-4xl font-bold'><span className='text-[#1a8e1a]'>Latest & Top </span> Job Openings</h1>
-            <div className='grid grid-cols-3 gap-4 my-5'>
+        <div className='md:w-3/4 w-4/5 max-w-7xl mx-auto my-20'>
+            <h1 className='md:text-4xl text-xl font-bold'><span className='text-[#1a8e1a]'>Latest & Top </span> Job Openings</h1>
+            <div className='grid md:grid-cols-3 gap-4 mx-5 my-5'>
                 {allJobs?.length <= 0 ? (
                     <>No Jobs Found</>
                 ) : (

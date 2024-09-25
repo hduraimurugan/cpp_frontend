@@ -68,12 +68,12 @@ const Profile = () => {
     return (
         <div>
             <Navbar />
-            <div className='max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8'>
+            <div className='w-3/4 md:w-auto max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8'>
                 <div className='flex justify-between'>
-                    <div className='flex items-center gap-4'>
+                    <div className='flex items-center justify-center gap-4'>
                         <form className='flex items-center ' onSubmit={submitHandler}>
                         <Label htmlFor="file" className="text-right flex  hover:cursor-pointer">
-                            <Avatar className="h-24 w-24">
+                            <Avatar className="md:h-24 md:w-24 h-10 w-10">
                                 <AvatarImage
                                     src={user?.profile?.profilePhoto || "https://res.cloudinary.com/dmuz0dq5b/image/upload/v1727067985/user_profile/rgskafgdibv4gltvhs8m.png"}
                                     alt={user?.profile?.username || "default avatar"}
@@ -89,12 +89,12 @@ const Profile = () => {
                             /></Label>
                             {
                                 loading ? <Button className="w-full mx-2 my-2"> <Loader2 className='h-4 w-4 animate-spin'/></Button> : 
-                                <Button type="submit" className="w-full mx-2 my-2"><UploadIcon size={20}/></Button>
+                                <Button type="submit" className="w-full mx-2 my-2"><UploadIcon className='h-4 w-4'/></Button>
                             }
                         </form>
 
                     </div>
-                    <Button onClick={() => setOpen(true)} className="text-right" variant="outline"><Pen /></Button>
+                    <Button onClick={() => setOpen(true)} className="text-right " variant="outline"><Pen /></Button>
                 </div>
                 <div className='my-5'>
                     <h1 className='font-medium text-xl'>{user?.fullname}</h1>
@@ -112,7 +112,7 @@ const Profile = () => {
                 </div>
                 <div className='my-5'>
                     <h1>Skills</h1>
-                    <div className='flex items-center gap-1'>
+                    <div className='flex flex-wrap items-center gap-1'>
                         {
                             user?.profile?.skills.length !== 0 ? user?.profile?.skills.map((item, index) => <Badge key={index}>{item}</Badge>) : <span>NA</span>
                         }
@@ -125,7 +125,7 @@ const Profile = () => {
                     }
                 </div>
             </div>
-            <div className='max-w-4xl mx-auto bg-white rounded-2xl'>
+            <div className='max-w-4xl w-3/4 md:w-auto mx-auto bg-white rounded-2xl'>
                 <h1 className='font-bold text-lg my-5'>Applied Jobs</h1>
                 {/* Applied Job Table   */}
                 <AppliedJobTable />

@@ -42,37 +42,37 @@ export const AdminAnalyticTable = () => {
     }, [applications]);
 
     return (
-        <div className="mx-auto container">
+        <div className="w-screen md:w-auto mx-auto container">
             <div className="w-full text-center my-3">
                 <h1 className="text-xl font-bold">List of All the Applications</h1>
-                <div className="flex justify-center gap-4 my-3">
-                    <Card className="w-[350px] bg-gray-200">
+                <div className="flex flex-wrap justify-center gap-4 my-3">
+                    <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-gray-200">
                         <CardHeader>
-                            <CardTitle>Jobs Applied</CardTitle>                   
+                            <CardTitle className="md:text-xl text-md">Jobs Applied</CardTitle>                   
                         </CardHeader>
                         <CardContent className="text-xl font-semibold">
                         {totalApplications}
                         </CardContent>
                     </Card>
-                    <Card className="w-[350px] bg-green-200">
+                    <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-green-200">
                         <CardHeader>
-                            <CardTitle>Students Hired</CardTitle>                   
+                            <CardTitle className="md:text-xl text-md">Students Hired</CardTitle>                   
                         </CardHeader>
                         <CardContent className="text-xl font-semibold"> 
                         {totalAccepted}
                         </CardContent>
                     </Card>
-                    <Card className="w-[350px] bg-red-200">
+                    <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-red-200">
                         <CardHeader>
-                            <CardTitle>Rejected</CardTitle>                   
+                            <CardTitle className="md:text-xl text-md">Rejected</CardTitle>                   
                         </CardHeader>
                         <CardContent className="text-xl font-semibold">
                         {totalRejected}
                         </CardContent>
                     </Card>
-                    <Card className="w-[350px] bg-blue-200">
+                    <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-blue-200">
                         <CardHeader>
-                            <CardTitle>Shortlisted</CardTitle>                   
+                            <CardTitle className="md:text-xl text-md">Shortlisted</CardTitle>                   
                         </CardHeader>
                         <CardContent className="text-xl font-semibold">
                         {totalShortlisted}
