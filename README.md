@@ -10,8 +10,10 @@ This is the frontend for a Job Application Management system built using React a
   - Login and Signup functionality.
     
 ![](https://github.com/user-attachments/assets/047cc38e-f95d-4aad-a4cf-e021b286f3ea)
-![](https://github.com/user-attachments/assets/f298a357-1f38-4dd5-9b54-b550a5276086)
 ![](https://github.com/user-attachments/assets/795cf721-fa8a-4ee3-b8cc-b7631a88991c)
+![](https://github.com/user-attachments/assets/f298a357-1f38-4dd5-9b54-b550a5276086)
+![](https://github.com/user-attachments/assets/01119af0-5bfd-402f-8aab-044d28b852f7)
+
 
   
 - **Recruiter Interface:**
