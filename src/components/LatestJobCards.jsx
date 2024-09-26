@@ -2,6 +2,9 @@ import { Badge } from './ui/badge'
 import { useNavigate } from 'react-router-dom'
 import { Button } from './ui/button';
 import { Avatar, AvatarImage } from './ui/avatar';
+import { IoLocationSharp } from "react-icons/io5";
+import { TiLocation } from "react-icons/ti";
+
 
 const LatestJobCards = ({job}) => {
     const navigate = useNavigate();
@@ -21,6 +24,9 @@ const LatestJobCards = ({job}) => {
             <div>
                 <h1 className='font-bold text-lg my-2'>{job?.title}</h1>
                 <p className='text-sm text-gray-600'>{job?.description}</p>
+               <div className='flex items-center my-3 text-indigo-700 gap-1'>
+                <TiLocation size={20} /><p className='text-md font-semibold text-gray-950'>{job?.location}</p>
+                </div> 
             </div>
             <div className='flex items-center gap-2 mt-4'>
                 <Badge className={'text-blue-700 font-bold'} variant="ghost">{job?.position} Positions</Badge>
