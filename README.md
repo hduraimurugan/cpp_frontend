@@ -38,7 +38,7 @@ This is the frontend for a Job Application Management system built using React a
    Admin Password: admin@1234
 ```
 
-### **Protected Routes:**<br/><br/>
+### **Protected Routes:**<br/>
 Routes are protected based on user roles to ensure only authorized users can access certain sections (e.g., recruiters or admins).
 
 
