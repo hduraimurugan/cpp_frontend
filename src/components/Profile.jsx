@@ -14,6 +14,7 @@ import axios from 'axios'
 import { setUser } from '@/redux/authSlice'
 import { toast } from 'sonner'
 import { Input } from './ui/input'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip'
 
 // const skills = ["Html", "Css", "Javascript", "Reactjs"]
 const isResume = true;
@@ -72,29 +73,49 @@ const Profile = () => {
                 <div className='flex justify-between'>
                     <div className='flex items-center justify-center gap-4'>
                         <form className='flex items-center gap-3 ' onSubmit={submitHandler}>
-                        <Label htmlFor="file" className="text-right flex  hover:cursor-pointer">
-                            <Avatar className="md:h-24 md:w-24 h-12 w-12">
-                                <AvatarImage
-                                    src={user?.profile?.profilePhoto || "https://res.cloudinary.com/dmuz0dq5b/image/upload/v1727067985/user_profile/rgskafgdibv4gltvhs8m.png"}
-                                    alt={user?.profile?.username || "default avatar"}
-                                />
-                            </Avatar><Edit2 size={15} />
-                            <Input 
-                                id="file"
-                                name="file"
-                                type="file"
-                                accept="image/*"
-                                onChange={profileChangeHandler}
-                                className="col-span-3 hidden"
-                            /></Label>
+                            <Label htmlFor="file" className="text-right flex  hover:cursor-pointer">
+                                <Avatar className="md:h-24 md:w-24 h-12 w-12">
+                                    <AvatarImage
+                                        src={user?.profile?.profilePhoto || "https://res.cloudinary.com/dmuz0dq5b/image/upload/v1727067985/user_profile/rgskafgdibv4gltvhs8m.png"}
+                                        alt={user?.profile?.username || "default avatar"}
+                                    />
+                                </Avatar><Edit2 size={15} />
+                                <Input
+                                    id="file"
+                                    name="file"
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={profileChangeHandler}
+                                    className="col-span-3 hidden"
+                                /></Label>
                             {
-                                loading ? <Button size="icon"> <Loader2 className='h-4 w-4 animate-spin'/></Button> : 
-                                <Button  size="icon" type="submit" ><UploadIcon className='h-4 w-4'/></Button>
+                                loading ? <Button size="icon"> <Loader2 className='h-4 w-4 animate-spin' /></Button> :
+                                    <>
+                                        <TooltipProvider>
+                                            <Tooltip>
+                                                <TooltipTrigger asChild>
+                                                    <Button size="icon" type="submit" ><UploadIcon className='h-4 w-4' /></Button>
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    <p>Update Profile Pic</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </TooltipProvider>
+                                    </>
                             }
                         </form>
 
                     </div>
-                    <Button onClick={() => setOpen(true)} className="text-right " variant="outline"><Pen /></Button>
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button onClick={() => setOpen(true)} className="text-right " variant="outline"><Pen /></Button>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>Update Profile</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                 </div>
                 <div className='my-5'>
                     <h1 className='font-medium text-xl'>{user?.fullname}</h1>
