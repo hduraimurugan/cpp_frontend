@@ -12,9 +12,9 @@ This is the frontend for a Job Application Management system built using React a
     Student Username: hdm@guvi.co.in
     Student Password: Santosh@1234
 ```
-![](https://github.com/user-attachments/assets/047cc38e-f95d-4aad-a4cf-e021b286f3ea)<br/>
-![](https://github.com/user-attachments/assets/f298a357-1f38-4dd5-9b54-b550a5276086)<br/>
-![](https://github.com/user-attachments/assets/01119af0-5bfd-402f-8aab-044d28b852f7)<br/>
+![](https://github.com/user-attachments/assets/047cc38e-f95d-4aad-a4cf-e021b286f3ea)<br/><br/>
+![](https://github.com/user-attachments/assets/f298a357-1f38-4dd5-9b54-b550a5276086)<br/><br/>
+![](https://github.com/user-attachments/assets/01119af0-5bfd-402f-8aab-044d28b852f7)<br/><br/>
 ![](https://github.com/user-attachments/assets/795cf721-fa8a-4ee3-b8cc-b7631a88991c)<br/><br/>
 
 
@@ -27,18 +27,18 @@ This is the frontend for a Job Application Management system built using React a
     Recruiter Username: recruiter@gmail.com
     Recruiter Password: Durai@1234
 ```
-![](https://github.com/user-attachments/assets/5bc8d932-61ce-4a1e-abe3-a928848b0dd9)<br/>
+![](https://github.com/user-attachments/assets/5bc8d932-61ce-4a1e-abe3-a928848b0dd9)<br/><br/>
 ![](https://github.com/user-attachments/assets/d2d84002-4aaf-4e49-81ea-593be2442a9d)<br/><br/>
 
 ### **Admin Interface:**
-  - Manage jobs and companies via a dedicated admin dashboard.<br/>
+  - Manage jobs and companies via a dedicated admin dashboard.<br/><br/>
 ![](https://github.com/user-attachments/assets/d58176a8-0a25-4e23-9777-0a210cc3a460) <br/><br/>
 ```
    Admin Username: admin@cpp.jobs.in
    Admin Password: admin@1234
 ```
 
-### **Protected Routes:**<br/>
+### **Protected Routes:**<br/><br/>
 Routes are protected based on user roles to ensure only authorized users can access certain sections (e.g., recruiters or admins).
 
 
