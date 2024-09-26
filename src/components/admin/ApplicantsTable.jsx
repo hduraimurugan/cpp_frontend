@@ -7,6 +7,7 @@ import { toast } from 'sonner';
 import { APPLICATION_API_END_POINT } from '@/utils/constant';
 import axios from 'axios';
 import { Badge } from '../ui/badge'; // Assuming you're using the Button component from your UI library
+import { Avatar, AvatarImage } from '../ui/avatar';
 
 const shortlistingStatus = ["Accepted", "Rejected", "Shortlisted"];
 
@@ -22,7 +23,7 @@ const ApplicantsTable = () => {
             const res = await axios.post(`${APPLICATION_API_END_POINT}/status/${id}/update`, { status });
             if (res.data.success) {
                 // Update the status locally in the state
-                const updatedApplicants = applicants.applications.map(applicant => 
+                const updatedApplicants = applicants.applications.map(applicant =>
                     applicant._id === id ? { ...applicant, status: status.toLowerCase() } : applicant
                 );
                 setApplicants({ ...applicants, applications: updatedApplicants });
@@ -52,6 +53,7 @@ const ApplicantsTable = () => {
                 <TableCaption>A list of your recent applied users</TableCaption>
                 <TableHeader>
                     <TableRow>
+                        <TableHead>Student Profile</TableHead>
                         <TableHead>FullName</TableHead>
                         <TableHead>Email</TableHead>
                         <TableHead>Contact</TableHead>
@@ -66,6 +68,11 @@ const ApplicantsTable = () => {
                     {
                         applicants && applicants?.applications?.map((item) => (
                             <TableRow key={item._id}>
+                                <TableCell>
+                                    <Avatar>
+                                        <AvatarImage src={item?.applicant?.profile?.profilePhoto} />
+                                    </Avatar>
+                                </TableCell>
                                 <TableCell>{item?.applicant?.fullname}</TableCell>
                                 <TableCell>{item?.applicant?.email}</TableCell>
                                 <TableCell>{item?.applicant?.phoneNumber}</TableCell>
@@ -108,7 +115,7 @@ const ApplicantsTable = () => {
                                         (<Badge className="bg-gray-500 text-white hover:cursor-pointer">
                                             NIL
                                         </Badge>
-                                    )}
+                                        )}
                                 </TableCell> {/* Conditionally render Interview Link */}
                             </TableRow>
                         ))

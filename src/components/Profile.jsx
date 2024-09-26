@@ -71,9 +71,9 @@ const Profile = () => {
             <div className='w-3/4 md:w-auto max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8'>
                 <div className='flex justify-between'>
                     <div className='flex items-center justify-center gap-4'>
-                        <form className='flex items-center ' onSubmit={submitHandler}>
+                        <form className='flex items-center gap-3 ' onSubmit={submitHandler}>
                         <Label htmlFor="file" className="text-right flex  hover:cursor-pointer">
-                            <Avatar className="md:h-24 md:w-24 h-10 w-10">
+                            <Avatar className="md:h-24 md:w-24 h-12 w-12">
                                 <AvatarImage
                                     src={user?.profile?.profilePhoto || "https://res.cloudinary.com/dmuz0dq5b/image/upload/v1727067985/user_profile/rgskafgdibv4gltvhs8m.png"}
                                     alt={user?.profile?.username || "default avatar"}
@@ -85,11 +85,11 @@ const Profile = () => {
                                 type="file"
                                 accept="image/*"
                                 onChange={profileChangeHandler}
-                                className="col-span-3 hidden "
+                                className="col-span-3 hidden"
                             /></Label>
                             {
-                                loading ? <Button className="w-full mx-2 my-2"> <Loader2 className='h-4 w-4 animate-spin'/></Button> : 
-                                <Button type="submit" className="w-full mx-2 my-2"><UploadIcon className='h-4 w-4'/></Button>
+                                loading ? <Button size="icon"> <Loader2 className='h-4 w-4 animate-spin'/></Button> : 
+                                <Button  size="icon" type="submit" ><UploadIcon className='h-4 w-4'/></Button>
                             }
                         </form>
 

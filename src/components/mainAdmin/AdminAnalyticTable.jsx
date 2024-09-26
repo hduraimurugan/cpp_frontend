@@ -48,34 +48,34 @@ export const AdminAnalyticTable = () => {
                 <div className="flex flex-wrap justify-center gap-4 my-3">
                     <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-gray-200">
                         <CardHeader>
-                            <CardTitle className="md:text-xl text-md">Jobs Applied</CardTitle>                   
+                            <CardTitle className="md:text-xl text-md">Jobs Applied</CardTitle>
                         </CardHeader>
                         <CardContent className="text-xl font-semibold">
-                        {totalApplications}
+                            {totalApplications}
                         </CardContent>
                     </Card>
                     <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-green-200">
                         <CardHeader>
-                            <CardTitle className="md:text-xl text-md">Students Hired</CardTitle>                   
+                            <CardTitle className="md:text-xl text-md">Students Hired</CardTitle>
                         </CardHeader>
-                        <CardContent className="text-xl font-semibold"> 
-                        {totalAccepted}
+                        <CardContent className="text-xl font-semibold">
+                            {totalAccepted}
                         </CardContent>
                     </Card>
                     <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-red-200">
                         <CardHeader>
-                            <CardTitle className="md:text-xl text-md">Rejected</CardTitle>                   
+                            <CardTitle className="md:text-xl text-md">Rejected</CardTitle>
                         </CardHeader>
                         <CardContent className="text-xl font-semibold">
-                        {totalRejected}
+                            {totalRejected}
                         </CardContent>
                     </Card>
                     <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-blue-200">
                         <CardHeader>
-                            <CardTitle className="md:text-xl text-md">Shortlisted</CardTitle>                   
+                            <CardTitle className="md:text-xl text-md">Shortlisted</CardTitle>
                         </CardHeader>
                         <CardContent className="text-xl font-semibold">
-                        {totalShortlisted}
+                            {totalShortlisted}
                         </CardContent>
                     </Card>
                 </div>
@@ -85,6 +85,7 @@ export const AdminAnalyticTable = () => {
                 <TableHeader>
                     <TableRow>
                         <TableHead>Student Name</TableHead>
+                        <TableHead>Profile</TableHead>
                         <TableHead>Job Applied for</TableHead>
                         <TableHead>Company</TableHead>
                         <TableHead>Company Logo</TableHead>
@@ -97,6 +98,11 @@ export const AdminAnalyticTable = () => {
                     {applications?.map((item) => (
                         <TableRow key={item._id}>
                             <TableCell>{item?.applicant?.fullname}</TableCell>
+                            <TableCell>
+                                <Avatar>
+                                    <AvatarImage src={item?.applicant?.profile?.profilePhoto} />
+                                </Avatar>
+                            </TableCell>
                             <TableCell>{item?.job?.title}</TableCell>
                             <TableCell>{item?.job?.company?.name}</TableCell>
                             <TableCell>
@@ -115,7 +121,7 @@ export const AdminAnalyticTable = () => {
                                         {item?.applicant?.profile?.resumeOriginalName}
                                     </a>
                                 ) : (
-                                    "NA"
+                                    "---"
                                 )}
                             </TableCell>
                             <TableCell>
