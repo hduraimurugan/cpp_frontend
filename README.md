@@ -31,14 +31,15 @@ This is the frontend for a Job Application Management system built using React a
 ![](https://github.com/user-attachments/assets/d2d84002-4aaf-4e49-81ea-593be2442a9d)<br/><br/>
 
 ### **Admin Interface:**
-  - Manage jobs and companies via a dedicated admin dashboard.
+  - Manage jobs and companies via a dedicated admin dashboard.<br/>
 ![](https://github.com/user-attachments/assets/d58176a8-0a25-4e23-9777-0a210cc3a460) <br/><br/>
 ```
    Admin Username: admin@cpp.jobs.in
    Admin Password: admin@1234
 ```
 
-- **Protected Routes:** Routes are protected based on user roles to ensure only authorized users can access certain sections (e.g., recruiters or admins).
+### **Protected Routes:**<br/>
+Routes are protected based on user roles to ensure only authorized users can access certain sections (e.g., recruiters or admins).
 
 
 ## Technologies Used 
