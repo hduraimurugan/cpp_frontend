@@ -169,6 +169,3 @@ You can modify the route protection logic or add more routes in the `App.js` fil
 
 
 
----
-
-This README provides an overview of how to set up, run, and customize the React frontend for the job application system. Let me know if you'd like to add or update any sections!
