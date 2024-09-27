@@ -2,6 +2,22 @@
 
 This is the frontend for a Job Application Management system built using React and React Router. The application allows users to browse jobs, apply for jobs, and manage their profiles, while recruiters can manage companies, post jobs, and view applicants. Admin users have access to an additional interface for managing jobs and companies.
 
+```
+    Student Username: hdm@guvi.co.in
+    Student Password: Santosh@1234
+```
+
+```
+    Recruiter Username: recruiter@gmail.com
+    Recruiter Password: Durai@1234
+```
+
+```
+   Admin Username: admin@cpp.jobs.in
+   Admin Password: admin@1234
+```
+
+
 ## Features
 
 ### **Student Interface:**
