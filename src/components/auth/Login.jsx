@@ -11,6 +11,7 @@ import { USER_API_END_POINT } from "@/utils/constant"
 import axios from "axios"
 import { setLoading, setUser } from '@/redux/authSlice'
 import { Loader2 } from 'lucide-react'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'
 
 
 const Login = () => {
@@ -40,7 +41,7 @@ const Login = () => {
                 withCredentials: true,
             });
             if (res.data.success) {
-                dispatch(setUser(res.data.user)) 
+                dispatch(setUser(res.data.user))
                 navigate("/");
                 toast.success(res.data.message);
             }
@@ -126,11 +127,42 @@ const Login = () => {
                     {
                         loading ? <Button className="w-full my-4 bg-[#1a8e1a] hover:bg-[#1a5d1a]">
                             <Loader2 className='mr-2 h-4 w-4 animate-spin' />Please Wait</Button>
-                            : <Button type="submit" className="w-full my-4 bg-[#1a8e1a] hover:bg-[#1a5d1a]">Login</Button>
+                            : <Button type="submit" className="w-full my-2 bg-[#1a8e1a] hover:bg-[#1a5d1a]">Login</Button>
                     }
 
                     <span className="text-sm">Don&apos;t have an account?
                         <Link to={'/signup'} className="text-green-700"> Sign up for free</Link></span>
+
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <div className='my-4 text-sm text-gray-400 hover:cursor-pointer hover:text-green-700'>***Click here for Demo Credentials***</div>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[425px]">
+                            <DialogHeader>
+                                <DialogTitle>Demo Credentials</DialogTitle>
+                            </DialogHeader>
+                            <div className="grid gap-4 py-10 px-2 ">
+                                
+                                <div>
+                                <span className='font-semibold'>For User Login:</span>
+                                <h1>Username: hdm@guvi.co.in</h1>
+                                <h1>Password: Santosh@1234</h1>
+                                </div>
+                                
+                                <div>
+                                <span className='font-semibold'>For Recruiter Login:</span>
+                                <h1>Username: recruiter@gmail.com</h1>
+                                <h1>Password: Durai@1234</h1>
+                                </div>
+
+                                <div>
+                                <span className='font-semibold'>For Admin Login:</span>
+                                <h1>Username: admin@cpp.jobs.in</h1>
+                                <h1>Password: admin@1234</h1>
+                                </div>
+                            </div>
+                        </DialogContent>
+                    </Dialog>
 
                 </form>
             </div>
