@@ -3,7 +3,7 @@
 This is the frontend for a Job Application Management system built using React and React Router. The application allows users to browse jobs, apply for jobs, and manage their profiles, while recruiters can manage companies, post jobs, and view applicants. Admin users have access to an additional interface for managing jobs and companies.
 
 
-### Demo Credentials <br/><br/>
+### Demo Credentials:- <br/>
 ```
     Student Username: hdm@guvi.co.in
     Student Password: Santosh@1234
