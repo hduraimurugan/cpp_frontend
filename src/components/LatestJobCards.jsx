@@ -25,7 +25,7 @@ const LatestJobCards = ({job}) => {
                 <h1 className='font-bold text-lg my-2'>{job?.title}</h1>
                 <p className='text-sm text-gray-600'>{job?.description}</p>
                <div className='flex items-center my-3 text-indigo-700 gap-1'>
-                <TiLocation size={20} /><p className='text-md font-semibold text-gray-950'>{job?.location}</p>
+                <TiLocation size={25} /><p className='text-md font-semibold text-gray-950'>{job?.location}</p>
                 </div> 
             </div>
             <div className='flex items-center gap-2 mt-4'>

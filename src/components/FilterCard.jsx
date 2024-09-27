@@ -43,7 +43,7 @@ const FilterCard = () => {
                                     return (
                                         <div className='flex items-center space-x-2 my-2' key={idx}>
                                             <RadioGroupItem value={item} id={itemId} />
-                                            <Label htmlFor={itemId} className="md:text-lg text-xs">{item}</Label>
+                                            <Label htmlFor={itemId} className="md:text-sm text-xs">{item}</Label>
                                         </div>
                                     )
                                 })

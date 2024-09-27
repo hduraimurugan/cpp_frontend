@@ -18,6 +18,7 @@ import { useSelector } from "react-redux";
 import { Badge } from "@/components/ui/badge"; // Assuming Badge is part of your UI library
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { useMemo } from "react";
+import { TiLocation, TiLocationArrow, TiLocationArrowOutline, TiLocationOutline } from "react-icons/ti";
 
 export const AdminAnalyticTable = () => {
     // Hook to fetch all applications
@@ -84,31 +85,23 @@ export const AdminAnalyticTable = () => {
                 <TableCaption>A list of all student Applications</TableCaption>
                 <TableHeader>
                     <TableRow>
-                        <TableHead>Student Name</TableHead>
-                        <TableHead>Profile</TableHead>
-                        <TableHead>Job Applied for</TableHead>
+                        <TableHead>Student</TableHead>
+                        <TableHead>Resume</TableHead>
+                        <TableHead>Job Title</TableHead>
+                        <TableHead>Location</TableHead>
                         <TableHead>Company</TableHead>
-                        <TableHead>Company Logo</TableHead>
-                        <TableHead>Student Resume</TableHead>
                         <TableHead>Date</TableHead>
-                        <TableHead>Status</TableHead>
+                        <TableHead className='text-center'>Status</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {applications?.map((item) => (
                         <TableRow key={item._id}>
-                            <TableCell>{item?.applicant?.fullname}</TableCell>
-                            <TableCell>
+                            <TableCell className="flex items-center w-auto">
                                 <Avatar>
                                     <AvatarImage src={item?.applicant?.profile?.profilePhoto} />
                                 </Avatar>
-                            </TableCell>
-                            <TableCell>{item?.job?.title}</TableCell>
-                            <TableCell>{item?.job?.company?.name}</TableCell>
-                            <TableCell>
-                                <Avatar>
-                                    <AvatarImage src={item?.job?.company?.logo} />
-                                </Avatar>
+                                <TableCell>{item?.applicant?.fullname}</TableCell>
                             </TableCell>
                             <TableCell>
                                 {item?.applicant?.profile?.resume ? (
@@ -124,10 +117,27 @@ export const AdminAnalyticTable = () => {
                                     "---"
                                 )}
                             </TableCell>
+
+                            <TableCell>{item?.job?.title}</TableCell>
+                            <TableCell> 
+                                <div className='flex items-center my-3 text-gray-400 gap-1'>
+                                <TiLocation size={20} />
+                                <p className='text-gray-950'>{item?.job?.location}     
+                                </p>
+                            </div>
+                            </TableCell>
+
+                            <TableCell className="flex items-center">
+                                <Avatar>
+                                    <AvatarImage src={item?.job?.company?.logo} />
+                                </Avatar>
+                                <TableCell>{item?.job?.company?.name}</TableCell>
+                            </TableCell>
+
                             <TableCell>
                                 {new Date(item?.createdAt).toLocaleDateString()}
                             </TableCell>
-                            <TableCell>
+                            <TableCell className='text-center'>
                                 <Badge
                                     className={`${item.status === "rejected"
                                         ? "bg-red-400"
