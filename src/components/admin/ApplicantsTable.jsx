@@ -70,7 +70,7 @@ const ApplicantsTable = () => {
                             <TableRow key={item._id}>
                                 <TableCell>
                                     <Avatar>
-                                        <AvatarImage src={item?.applicant?.profile?.profilePhoto} />
+                                    <AvatarImage src={item?.applicant?.profile?.profilePhoto || "https://res.cloudinary.com/dmuz0dq5b/image/upload/v1727067985/user_profile/rgskafgdibv4gltvhs8m.png"} />
                                     </Avatar>
                                 </TableCell>
                                 <TableCell>{item?.applicant?.fullname}</TableCell>
