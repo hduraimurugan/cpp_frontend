@@ -19,13 +19,15 @@ import { Badge } from "@/components/ui/badge"; // Assuming Badge is part of your
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { useMemo } from "react";
 import { TiLocation, TiLocationArrow, TiLocationArrowOutline, TiLocationOutline } from "react-icons/ti";
+import { Skeleton } from "../ui/skeleton";
+import { Loader2 } from "lucide-react";
 
 export const AdminAnalyticTable = () => {
     // Hook to fetch all applications
     useGetAllApplications();
 
     // Extracting applications from Redux store
-    const { applications } = useSelector((store) => store.application);
+    const { applications , loading } = useSelector((store) => store.application);
 
     // Calculate totals for different application statuses
     const { totalApplications, totalAccepted, totalRejected, totalShortlisted } = useMemo(() => {
@@ -52,7 +54,9 @@ export const AdminAnalyticTable = () => {
                             <CardTitle className="md:text-xl text-md">Jobs Applied</CardTitle>
                         </CardHeader>
                         <CardContent className="text-xl font-semibold">
-                            {totalApplications}
+                           { loading ? <Loader2 className="animate-spin" /> :
+                           <>{totalApplications}</> 
+                           }
                         </CardContent>
                     </Card>
                     <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-green-200">
@@ -60,7 +64,9 @@ export const AdminAnalyticTable = () => {
                             <CardTitle className="md:text-xl text-md">Students Hired</CardTitle>
                         </CardHeader>
                         <CardContent className="text-xl font-semibold">
-                            {totalAccepted}
+                        { loading ? <Loader2 className="animate-spin" /> :
+                           <>{totalAccepted}</> 
+                           }                        
                         </CardContent>
                     </Card>
                     <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-red-200">
@@ -68,7 +74,9 @@ export const AdminAnalyticTable = () => {
                             <CardTitle className="md:text-xl text-md">Rejected</CardTitle>
                         </CardHeader>
                         <CardContent className="text-xl font-semibold">
-                            {totalRejected}
+                        { loading ? <Loader2 className="animate-spin" /> :
+                           <>{totalRejected}</> 
+                           }                         
                         </CardContent>
                     </Card>
                     <Card className="md:w-[300px] w-1/3 flex flex-col items-center bg-blue-200">
@@ -76,7 +84,9 @@ export const AdminAnalyticTable = () => {
                             <CardTitle className="md:text-xl text-md">Shortlisted</CardTitle>
                         </CardHeader>
                         <CardContent className="text-xl font-semibold">
-                            {totalShortlisted}
+                        { loading ? <Loader2 className="animate-spin" /> :
+                           <>{totalShortlisted}</> 
+                           }                         
                         </CardContent>
                     </Card>
                 </div>
@@ -94,6 +104,50 @@ export const AdminAnalyticTable = () => {
                         <TableHead className='text-center'>Status</TableHead>
                     </TableRow>
                 </TableHeader>
+                {loading ? (
+                    <div className="">
+                        {/* Loading Skeleton */}
+                        <div className="flex flex-col gap-4 px-5 py-5 justify-start">
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+
+                        </div>
+                    </div>
+                ) :
                 <TableBody>
                     {applications?.map((item) => (
                         <TableRow key={item._id}>
@@ -153,7 +207,7 @@ export const AdminAnalyticTable = () => {
                             </TableCell>
                         </TableRow>
                     ))}
-                </TableBody>
+                </TableBody>}
             </Table>
         </div>
     );

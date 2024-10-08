@@ -5,9 +5,10 @@ import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import { Edit2, Eye, MoreHorizontal } from 'lucide-react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { Skeleton } from '../ui/skeleton'
 
 const AdminJobsTable = () => {
-    const { allAdminJobs, searchJobByText } = useSelector(store => store.job);
+    const { allAdminJobs, searchJobByText , loading} = useSelector(store => store.job);
 
     const [filterJobs, setFilterJobs] = useState(allAdminJobs);
     const navigate = useNavigate();
@@ -36,6 +37,38 @@ const AdminJobsTable = () => {
                         <TableHead className="text-right">Applicants</TableHead>
                     </TableRow>
                 </TableHeader>
+                {loading ? (
+                    <div className="">
+                        {/* Loading Skeleton */}
+                        <div className="flex flex-col gap-4 px-5 py-5 justify-start">
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+
+                        </div>
+                    </div>
+                ) :
                 <TableBody>
                     {
                         filterJobs?.map((job, idx) => (
@@ -72,6 +105,7 @@ const AdminJobsTable = () => {
                         ))
                     }
                 </TableBody>
+                }
             </Table>
         </div>
     )

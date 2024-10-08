@@ -3,9 +3,10 @@ import { Badge } from './ui/badge'; // Assuming Button is imported from your UI 
 import { useSelector } from 'react-redux';
 import { toast } from 'sonner';
 import { Avatar, AvatarImage } from './ui/avatar';
+import { Skeleton } from './ui/skeleton';
 
 const AppliedJobTable = () => {
-    const { allAppliedJobs } = useSelector(store => store.job);
+    const { allAppliedJobs, loading } = useSelector(store => store.job);
 
     const handleInterviewLink = (appId) => {
         // Logic for handling interview link, e.g., redirect to an interview URL or open a modal
@@ -14,7 +15,7 @@ const AppliedJobTable = () => {
 
     return (
         <div>
-            <Table>
+             <Table>
                 <TableCaption>A list of your applied jobs</TableCaption>
                 <TableHeader>
                     <TableRow>
@@ -26,6 +27,38 @@ const AppliedJobTable = () => {
                         <TableHead className="text-right">Interview</TableHead> {/* New column for Interview Link */}
                     </TableRow>
                 </TableHeader>
+                {loading ? (
+                    <div className="">
+                        {/* Loading Skeleton */}
+                        <div className="flex flex-col gap-4 px-5 py-5 justify-start">
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+
+                        </div>
+                    </div>
+                ) :
                 <TableBody>
                     {
                         allAppliedJobs.length <= 0 ? <span>You haven&apos;t applied for any jobs yet.</span> : allAppliedJobs.map((appliedJob) => (
@@ -58,8 +91,9 @@ const AppliedJobTable = () => {
                             </TableRow>
                         ))
                     }
-                </TableBody>
+                </TableBody>}
             </Table>
+
         </div>
     );
 };

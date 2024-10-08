@@ -7,6 +7,7 @@ const applicationSlice = createSlice({
         applications:null,
         searchJobByText:"",
         searchedQuery:"",
+        loading:false,
     },
     reducers:{
         setAllApplicants:(state,action) => {
@@ -20,8 +21,11 @@ const applicationSlice = createSlice({
         },
         setSearchedQuery:(state,action) => {
             state.searchedQuery = action.payload;
+        },
+        setLoading:(state,action) => {
+            state.loading = action.payload;
         }
     }
 });
-export const {setAllApplicants,setAllApplications,setSearchJobByText, setSearchedQuery} = applicationSlice.actions;
+export const {setAllApplicants,setAllApplications,setSearchJobByText, setSearchedQuery,setLoading} = applicationSlice.actions;
 export default applicationSlice.reducer;

@@ -8,18 +8,21 @@ import { APPLICATION_API_END_POINT } from '@/utils/constant';
 import axios from 'axios';
 import { Badge } from '../ui/badge'; // Assuming you're using the Button component from your UI library
 import { Avatar, AvatarImage } from '../ui/avatar';
+import { Skeleton } from '../ui/skeleton';
 
 const shortlistingStatus = ["Accepted", "Rejected", "Shortlisted"];
 
 const ApplicantsTable = () => {
-    const { applicants: initialApplicants } = useSelector(store => store.application);
+    const { applicants: initialApplicants, loading } = useSelector(store => store.application);
     const [applicants, setApplicants] = useState(initialApplicants);
     const [loadingId, setLoadingId] = useState(null); // Track which applicant is being updated
+   
 
     const statusHandler = async (status, id) => {
         setLoadingId(id); // Set the loading state for the specific applicant
         try {
             axios.defaults.withCredentials = true;
+            
             const res = await axios.post(`${APPLICATION_API_END_POINT}/status/${id}/update`, { status });
             if (res.data.success) {
                 // Update the status locally in the state
@@ -33,6 +36,7 @@ const ApplicantsTable = () => {
             toast.error(error.response?.data?.message || 'Error updating status');
         } finally {
             setLoadingId(null); // Reset loading state after the request is finished
+            
         }
     };
 
@@ -64,6 +68,38 @@ const ApplicantsTable = () => {
                         <TableHead className="text-right">Interview</TableHead> {/* New column for Interview Link */}
                     </TableRow>
                 </TableHeader>
+                {loading ? (
+                    <div className="">
+                        {/* Loading Skeleton */}
+                        <div className="flex flex-col gap-4 px-5 py-5 justify-start">
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+                            <div className="flex flex-row items-center gap-4 space-x-5">
+                                <Skeleton className="h-12 w-12 rounded-full" />
+                                <Skeleton className="h-4 w-[300px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                                <Skeleton className="h-4 w-[250px]" />
+                            </div>
+
+                        </div>
+                    </div>
+                ) :
                 <TableBody>
                     {
                         applicants && applicants?.applications?.map((item) => (
@@ -120,7 +156,7 @@ const ApplicantsTable = () => {
                             </TableRow>
                         ))
                     }
-                </TableBody>
+                </TableBody>}
             </Table>
         </div>
     );
