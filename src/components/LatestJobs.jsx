@@ -17,16 +17,16 @@ const LatestJobs = () => {
 
             <div className='flex gap-4 mx-5 my-5'>
                 {loading ? (
-                    <div className="flex flex-row flex-wrap gap-10 items-center justify-center">
+                    <div className="flex flex-row flex-wrap gap-10  items-center justify-center">
                         {/* Loading Skeleton */}
                         {[...Array(6)].map((_, idx) => (
-                            <div key={idx} className="flex items-center justify-center space-x-4">
+                            <div key={idx} className="flex items-center justify-center">
                                 <Skeleton className="h-16 w-16 rounded-full" />
                                 <div className="space-y-2">
-                                    <Skeleton className="h-4 w-[250px]" />
-                                    <Skeleton className="h-4 w-[250px]" />
-                                    <Skeleton className="h-4 w-[200px]" />
-                                    <Skeleton className="h-4 w-[200px]" />
+                                    <Skeleton className="h-4 md:w-[250px] w-[200px]" />
+                                    <Skeleton className="h-4 md:w-[250px] w-[200px]" />
+                                    <Skeleton className="h-4 md:w-[200px] w-[150px]" />
+                                    <Skeleton className="h-4 md:w-[200px] w-[150px]" />
                                    
                                 </div>
                             </div>
