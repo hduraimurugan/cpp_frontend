@@ -50,6 +50,7 @@ const JobDescription = () => {
         const fetchSingleJob = async () => {
             try {
                 dispatch(setLoading(true))
+                dispatch(setSingleJob(null));
                 const res = await axios.get(`${JOB_API_END_POINT}/get/${jobId}`, { withCredentials: true });
                 if (res.data.success) {
                     dispatch(setSingleJob(res.data.job));
@@ -63,6 +64,16 @@ const JobDescription = () => {
         }
         fetchSingleJob();
     }, [jobId, dispatch, user?._id]);
+
+    useEffect(() => {
+        if (!singleJob) return;
+        document.title = `${singleJob?.title} | ${singleJob?.company?.name}`;
+
+        return function () {
+            document.title = "College Placement Portal";
+            // Clean up effect
+        };
+    }, [singleJob])
 
     return <>
         {loading ? (

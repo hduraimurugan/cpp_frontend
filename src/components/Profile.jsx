@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './shared/Navbar'
 import { Avatar, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
@@ -65,6 +65,16 @@ const Profile = () => {
         setOpen(false);
         console.log(input);
     }
+
+    useEffect(() => {
+        if(!user) return;
+        document.title= `${user?.fullname} | ${user?.email}`;
+        
+        return function () {
+            document.title = "College Placement Portal";
+            // Clean up effect
+          };
+    }, [user])
 
     return (
         <div>
