@@ -21,7 +21,10 @@ const Companies = () => {
         <div>
             <Navbar />
             <div className='w-4/5 md:w-auto max-w-6xl mx-auto my-10'>
-                <div><h1 className='text-center text-2xl font-bold'>Companies List</h1></div>
+                <div>
+                    <h1 className='flex flex-wrap justify-center my-16 md:text-4xl text-2xl text-center font-bold'>Create Company, Post Job & Find Your&nbsp; <span className='text-[#1a8e1a]'> Employees</span></h1>
+                    {/* <h1 className='text-2xl font-bold'>Companies List</h1> */}
+                </div>
 
                 <div className='flex items-center justify-between my-5'>
                     <Input

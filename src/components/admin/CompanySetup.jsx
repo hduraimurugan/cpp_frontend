@@ -74,6 +74,16 @@ const CompanySetup = () => {
         })
     },[singleCompany]);
 
+    useEffect(() => {
+        if (!singleCompany) return;
+        document.title = `${singleCompany?.name} | ${singleCompany?.description}`;
+
+        return function () {
+            document.title = "College Placement Portal";
+            // Clean up effect
+        };
+    }, [singleCompany])
+
     return (
         <div>
             <Navbar />
