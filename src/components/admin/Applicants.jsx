@@ -45,7 +45,7 @@ const Applicants = () => {
             <Navbar />
             <div className='w-4/5 md:w-auto max-w-7xl mx-auto'>
                 {loading ?
-                    <div className='flex md:justify-between md:flex-row flex-col justify-center items-center gap-5 my-5'>
+                    <div className='flex md:justify-between md:flex-row flex-col justify-center items-center gap-5 my-10'>
                         <div className="flex flex-row items-center gap-4 space-x-5">
                             <Skeleton className="h-12 w-12 rounded-full" />
                             <Skeleton className="h-4 w-[300px]" />
@@ -53,7 +53,7 @@ const Applicants = () => {
                         <Skeleton className="h-4 w-[300px]" />
                     </div> :
                     <>
-                    <div className='md:flex md:justify-between'> 
+                    <div className='md:flex md:justify-between my-7'> 
                         <p className='font-bold text-xl my-5 flex items-center justify-center gap-2'>
                             <Avatar>
                                 <AvatarImage src={applicants?.company?.logo} />

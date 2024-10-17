@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { USER_API_END_POINT } from "@/utils/constant"
 import { setUser } from "@/redux/authSlice"
 import { toast } from "sonner"
+import { Separator } from "@/components/ui/separator"
+
 import axios from "axios"
 
 const Navbar = () => {
@@ -202,6 +204,7 @@ const Navbar = () => {
                     )
                 }
             </div>
+            <Separator />
         </>
     )
 }
